@@ -6,6 +6,7 @@ public class StreamExamples {
         StreamExamples.filter();
         StreamExamples.filterWithMethod();
         StreamExamples.map();
+        StreamExamples.sum();
     }
 
 
@@ -47,10 +48,24 @@ public class StreamExamples {
             System.out.println(squaredNumber);
         }
 
-        // As Streams
+        // As Stream
         numbers.stream()
                 .map(number -> number * number)
                 .forEach(System.out::println);
+    }
+
+    private static void sum() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Before
+        int sum = 0;
+        for (Integer number : numbers) {
+            sum += number;
+        }
+        System.out.println(sum);
+
+        // As Stream
+        System.out.println(numbers.stream().mapToInt(Integer::intValue).sum());
     }
 
 
