@@ -1,5 +1,7 @@
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamExamples {
     public static void main(String[] args) {
@@ -7,6 +9,7 @@ public class StreamExamples {
         StreamExamples.filterWithMethod();
         StreamExamples.map();
         StreamExamples.sum();
+        StreamExamples.flatMap();
     }
 
 
@@ -68,6 +71,20 @@ public class StreamExamples {
         System.out.println(numbers.stream().mapToInt(Integer::intValue).sum());
     }
 
+    private static void flatMap() {
+        List<List<Integer>> matrix = Arrays.asList(Arrays.asList(1, 2), Arrays.asList(3, 4), Arrays.asList(5, 6));
 
+        // Before
+        int sum = 0;
+        for (List<Integer> row : matrix) {
+            for (Integer value : row) {
+                sum += value;
+            }
+        }
+        System.out.println(sum);
+
+        // With flatMap Stream
+        System.out.println(matrix.stream().flatMap(Collection::stream).mapToInt(Integer::intValue).sum());
+    }
 }
 
