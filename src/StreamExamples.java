@@ -91,9 +91,9 @@ public class StreamExamples {
     private static void collect() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
 
-        List<Integer> oddNumbers = numbers.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
+        List<Integer> evenNumbers = numbers.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
 
-        oddNumbers.forEach(System.out::println);
+        evenNumbers.forEach(System.out::println);
     }
 }
 
