@@ -10,6 +10,7 @@ public class StreamExamples {
         StreamExamples.map();
         StreamExamples.sum();
         StreamExamples.flatMap();
+        StreamExamples.collect();
     }
 
 
@@ -85,6 +86,14 @@ public class StreamExamples {
 
         // With flatMap Stream
         System.out.println(matrix.stream().flatMap(Collection::stream).mapToInt(Integer::intValue).sum());
+    }
+
+    private static void collect() {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+
+        List<Integer> oddNumbers = numbers.stream().filter(x -> x % 2 == 0).collect(Collectors.toList());
+
+        oddNumbers.forEach(System.out::println);
     }
 }
 
